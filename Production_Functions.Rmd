@@ -1,0 +1,118 @@
+---
+title: "Production FUnctions"
+author: "Massimiliano"
+date: "20 febbraio 2017"
+output: pdf_document
+---
+
+#Example of Cobb-Douglas function
+======================
+$$
+F(K, L) = \left[\gamma K^\frac{(\sigma - 1)}{\sigma} + (1 - \gamma)L^\frac{(\sigma - 1)}{\sigma} \right]^\frac{\sigma}{\sigma - 1}
+$$
+
+#Example of CES function
+=======================
+$$
+F(K, L) = K^\alpha L^\beta
+$$
+
+#Example of Leontief function (perfect complements)
+===========================
+$$
+F(K, L) = min\left\{\alpha K, \beta L \right \}
+$$
+
+#CES Function
+===============================
+##Form
+Following Chen (2011), we provide a proof of the form of CES function.
+For more details on CES function, read \href{http://www.aae.wisc.edu/aae705/References/Arrow_etal_1961.pdf}{Arrow et. al (1961)}
+
+The production function $V = F(K,L)$ in capital version can be written as 
+
+$$
+\frac{V}{L} = F\left(\frac{K}{L}, 1 \right)
+$$
+Let us start from $ln\frac{V}{L} = lna + blnw$
+
+where,
+
+$$
+\begin{aligned}
+  &\ \frac{V}{L} = y \\
+  &\ \frac{K}{L} = k \\
+  &\ MPK = f'(k) \\
+  &\ MPL = f(k) - kf'(k) \\
+\end{aligned}
+$$
+We can write
+
+$$
+lny = ln a + b ln [f(k) - kf'(k)]
+$$
+Solving for $f'(k)$
+
+$$
+\begin{aligned}
+  &\ ln y - ln a = b ln [y - k f'(k)] \\
+  &\ ln \frac{y}{a} = b ln [y - k f'(k)] \\
+  &\ ln \left(\frac{y}{a} \right)^\frac{1}{b} = ln [y - k f'(k)] \\
+  &\ k f'(k) = y - \left(\frac{y}{a} \right)^\frac{1}{b} \\
+  &\ k f'(k) = y - \frac{y^\frac{1}{b}}{a^\frac{1}{b}} \\
+  &\ f'(k) = \frac{{a^\frac{1}{b}}y - y^\frac{1}{b}}{ka^\frac{1}{b}}\\
+\end{aligned}
+$$
+where
+
+$$
+\frac{{a^\frac{1}{b}}y - y^\frac{1}{b}}{ka^\frac{1}{b}} =
+\frac{{a^\frac{-1}{b}(a^\frac{1}{b}}y - y^\frac{1}{b})}{k} =
+\frac{y - a^\frac{-1}{b}y^\frac{1}{b}}{k}
+$$
+Setting $\alpha = a^\frac{-1}{b}$ and $\rho = \frac{1}{b} - 1$, we can write
+
+$$
+\frac{dy}{dk} = \frac{y - \alpha y^\frac{1}{b}}{k}= \frac{y(1 - \alpha y^{\frac{1}{b}-1})}{k} = \frac{y(1 - \alpha y^\rho)}{k}
+$$
+Becuase it is a separable differential equation, first let us separate $y$ and $k$, perform partial fraction decomposition, and take integral on both sides:
+
+$$
+\begin{aligned}
+   &\ \frac{dk}{k} = \frac{dy}{y(1 - \alpha y^\rho)}\\
+   &\ \frac{dk}{k} = \frac{dy}{y} + \frac{\alpha y^{\rho-1}dy}{1 - \alpha y^\rho}\\
+   &\ ln k = ln y - \frac{1}{\rho} ln (1 - \alpha y^\rho) + \frac{1}{\rho} ln \beta
+\end{aligned}
+$$
+where $ln \beta$ is a constat term after indifinite integration. Take antilog on both sides and raise the power of $\rho$ to get 
+
+$$
+k^\rho = \frac{\beta y^\rho}{1 - \alpha y^\rho}
+$$
+and solve for $y$
+
+$$
+\begin{aligned}
+   &\ k^\rho (1 - \alpha y^\rho) = \beta y^\rho \\
+   &\ k^\rho - \alpha k^\rho y^\rho = \beta y^\rho \\
+   &\ k^\rho = \beta y^\rho + \alpha k^\rho y^\rho \\
+   &\ k^\rho = (\beta + \alpha k^\rho)y^\rho \\
+   &\ y^\rho = \frac{k^\rho}{\beta + \alpha k^\rho}\\
+   &\ y = \left(\frac{k^\rho}{\beta + \alpha k^\rho} \right)^\frac{1}{\rho}\\
+   &\ y = k(\beta + \alpha k^\rho)^\frac{-1}{\rho}\\
+   &\ y = \left[k^{-\rho} (\beta + \alpha k^\rho)\right]^\frac{-1}{\rho}\\
+   &\ y = (\beta k^{-\rho} + \alpha)^\frac{-1}{\rho}\\
+\end{aligned}
+$$
+It can be written in the aggregate form as 
+
+$$
+F(K, L) = (\beta K^{-\rho} + \alpha L)^\frac{-1}{\rho}
+$$  
+
+
+#References
+=======================
+K. J. Arrow, H. B. Chenery, B. S. Minhas, R. M. Solow (1961). Capital-Labor Substitution and Economic Efficiency, \textit{The Review of Economics and Statistics}, Vol. 43, No. 3, pp. 225-250. 
+
+Weijie Chen (2011). CES functions and Dixit-Stiglitz Formulation, Department of Political and Economic Studies, University of Helsinki.
