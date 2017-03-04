@@ -1,0 +1,308 @@
+---
+title: "LaTex Code"
+author: "Massimiliano Porto"
+date: "01 marzo 2017"
+output: pdf_document
+---
+
+#To Start
+
+These notes contain the basic codes to start writing economic equations and formulas in Tex language.
+
+Each code is included in an easy and more complex example.
+
+#Containts
+
+$$
+\begin{aligned}
+ &\ 1. Greek Letters \\
+ &\ 2. Parenthesis \\ 
+ &\ 3. Fractions \\
+ &\ 4. Parenthesis \ and \ Fractions \\
+ &\ 5. Exponential \\
+ &\ 6. Subscript \\
+ &\ 7. Derivative \\
+ &\ 8. Lagrangian \\
+ &\ 9. Summation \\
+ &\ 10. Limit \\
+ &\ 11. Integrals \\
+ &\ 12. Matrix \\
+ &\ 13. Equalities \ and \ Inequalities \\
+ &\ 14. Subset and Functions \\
+\end{aligned}
+$$
+
+
+ 
+#Greek letters
+To write Greek letters the symbol of blackslash is followed by the name of the Greek letter. For example, some of the most used Greek letters in Economics:
+
+$$
+\begin{aligned}
+  &\ \alpha \\
+  &\ \beta \\
+  &\ \gamma \\
+  &\ \theta \\
+  &\ \sigma \\
+  &\ \rho \\
+  &\ \lambda \\
+  &\ \phi \\
+  &\ \psi \\
+  &\ \epsilon\\
+\end{aligned}
+$$
+
+For the corresponding capital letter, we just write in the same way but with initial capital letter.
+
+
+Example
+
+$$
+\begin{aligned}
+ &\ \Gamma \\
+ &\ \Delta \\
+ &\ \Sigma \\
+ &\ \Lambda \\
+ &\ \Omega \\
+ &\ \Phi \\
+ &\ \Psi \\
+\end{aligned}
+$$
+
+
+#Parenthesis
+We can write parenthesis and brackets just giving the input on the keyboard $()$ or $[]$. This does not work for braces.
+
+Another way is to write parenthesis with the following notation 
+
+$$
+\left( \right); \left[ \right]
+$$ 
+
+that is writing the symbol of backslash followed by left before opening the parenthesis and backslash followed by right before closing the parenthesis. 
+
+In case of brace, we should use the following notation:
+
+$$
+\left\{ \right\}
+$$
+
+The difference with respect to parenthesis and brackets is a backslash after left and right.
+
+Example:
+
+$$
+10 \cdot \left\{5 + \left[3 + 2 \cdot \left(9-1\right)\right]  \right\}
+$$
+
+The opportunity to write the full notation for parenthesis and brackets will be clear when dealing whit fractions. 
+
+#Fractions
+To write fractions the inputs to give are backslash frac and then numerator and denominator written between two braces. With an example with be clear.
+
+Example:
+
+$$
+\frac{5}{2}
+$$
+
+#Paranthesis & Fraction
+If we write a fraction in parenthesis with the shortcut
+
+$$
+( \frac{5}{2})
+$$
+the parenthesis do not fit the fraction.
+
+If we write with full notation
+
+$$
+\left( \frac{5}{2} \right)
+$$
+we will an appropriate result.
+
+Example:
+
+$$
+\frac{Y}{L} = \left(\frac{K}{L}, 1 \right)
+$$
+
+Example:
+
+$$
+\frac{\alpha}{1-\alpha} = \phi
+$$
+
+#Exponential
+
+To write the exponential we use the symbol of caret
+
+$$
+2^5
+$$
+In case of operation in the exponential, we need to use brace after the symbol of caret
+
+$$
+2^{5-x}
+$$
+
+
+Example:
+
+$$
+F(K, L) = K^\alpha L^\beta
+$$
+
+Example:
+
+$$
+F(K, L) = \left[\gamma K^\frac{\sigma - 1}{\sigma} + (1 - \gamma)L^\frac{\sigma - 1}{\sigma} \right]^\frac{\sigma}{\sigma - 1}
+$$
+
+
+#Subscript
+
+To write subscript use the symbol of underscore
+
+$$
+t_0
+$$
+We use again brace in case of operation in subscript
+
+Example
+
+$$
+y_ty_{t-j}
+$$
+
+#Derivative
+
+Example:
+
+$$
+\frac{dk}{k}
+$$
+To write partial differentiation, write the symbol of backslash followed by partial in the fraction notation
+
+Example:
+
+$$
+\frac{\partial F}{\partial K} = r + \delta
+$$
+
+#Lagrangian
+
+The symbol of Lagrangian is written as follows:
+
+$$
+\mathcal L
+$$
+that is backslash followed by mathcal, L.
+
+
+#Summation
+
+The code to write summation is the symbol of backslash followed by sum, symbol of underscore and brace with lower bound of summation followed by the symbol of caret before the brace with the upper bound of summation. 
+
+Example:
+
+$$
+\sum_{t_0}^{\infty}
+$$
+
+An example summing up what we saw until now:
+
+$$
+\mathcal L = \sum_{t=0}^{\infty} \left(\frac {1}{1 + \rho} \right)^{t} u(c_t) \frac{L_t}{H} + \lambda \left[S_0 + \sum_{t=0}^{\infty} R_t^{-1}w_t \left(\frac {L_t}{H}\right) - \sum_{t=0}^{\infty} R_t^{-1}c_t \left(\frac {L_t}{H}\right) \right]
+$$
+
+#Limit
+
+The code for limit is written as follows:
+
+$$
+\lim_{t\to\infty}
+$$
+that is backslash followed by lim, symbol of underscore and within brace the tendency separated by to between two symbols of backslash.
+
+Example: 
+
+$$
+\lim_{t\to\infty} R_t^{-1}S_t = 0
+$$
+
+Example
+
+$$
+e^{lim_{\gamma\to0}\frac{1}{\gamma}ln\left[\alpha K^\gamma + (1 - \alpha)L^\gamma \right]}
+$$
+
+
+#Integrals
+
+$$
+\int_0^\infty
+$$
+Example
+
+$$
+\int_0^\infty\left[r(t)e^{-R(t)}S(t) + e^{-R(t)} w(t) \frac{L(t)}{H}-e^{-R(t)}c(t) \frac{L(t)}{H} \right]dt
+$$
+
+#Matrix
+
+$$
+A =
+\begin{bmatrix}
+  a_{11} & a_{12} & a_{13} & \dots & a_{1n} \\
+  a_{21} & a_{22} & a_{23} & \dots & a_{2n} \\
+  \vdots & \vdots & \vdots & \vdots & \vdots\\
+  a_{m1} & a_{m2} & a_{m3} & \dots & a_{mn} \\
+\end{bmatrix}
+\ne
+B =
+\begin{pmatrix}
+ b_{11} & b_{12} & b_{13} & \cdots & b_{1n} \\
+ b_{21} & \ddots & b_{23} & \cdots & b_{2n} \\
+ ...&...&... & \ddots &... \\
+ b_{m1} & b_{m2} & b_{m3} & \dots & b_{mn} \\
+\end{pmatrix}
+$$
+
+#Equalities and Inequalities
+
+$$
+\begin{aligned}
+  &\ = \\
+  &\ \neq \\
+  &\ < \\
+  &\ \leq \\
+  &\ > \\
+  &\ \geq \\
+  &\ \simeq \\
+\end{aligned}
+$$
+
+#Subset and Functions
+
+$$
+\begin{aligned}
+  &\ \subset \\
+  &\ \supset \\
+  &\ \cap \\
+  &\ \cup \\
+  &\ \varnothing \\
+  &\ \in \\
+  &\ \ni \\
+  &\ \notin \\
+  &\ \exists \\
+  &\ \forall \\
+  &\ \to \\
+  &\ \gets \\
+  &\ \mapsto \\
+  &\ \implies \\
+\end{aligned}
+$$
+
+
+
