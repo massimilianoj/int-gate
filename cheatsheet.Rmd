@@ -1,0 +1,471 @@
+---
+title: "Cheatsheet"
+author: "Massimiliano"
+date: "3/6/2017"
+output: 
+  html_document:
+    number_sections: yes
+    toc: yes
+    css: style.css
+---
+
+# To Start
+
+These notes contain the basic codes to start writing economic equations and formulas in Tex language.
+
+Each code is included in an easy and more complex example.
+
+# Greek letters
+
+To write Greek letters the symbol of "\\" (backslash) is followed by the name of the Greek letter. 
+
+Note that the symbol of "\\" is one of the main commands to write codes. 
+
+For example, some of the most used Greek letters in Economics:
+
+```{r, include = FALSE}
+source("utils.R")
+```
+
+
+```{r, echo = FALSE}
+greek_letters = c('alpha', 'beta', 'gamma', 'theta', 'sigma', 
+                  'rho', 'lambda', 'phi', 'psi', 'epsilon')
+knitr::kable(math_table(greek_letters))
+```
+
+For the corresponding capital letter, we just write in the same way but with initial capital letter.
+
+Example
+
+```{r, echo = FALSE}
+capital_letters = c("Gamma", "Lambda", "Sigma", "Psi", 
+                    "Delta", "Xi", "Upsilon", "Omega", 
+                    "Theta", "Pi", "Phi")
+knitr::kable(math_table(capital_letters))
+```
+
+
+#Parenthesis
+We can write parenthesis and brackets just giving the input on the keyboard $()$ or $[]$. This does not work for braces.
+
+Another way is to write parenthesis with the following notation:
+
+```{r, echo = FALSE, results = "asis"}
+s_paren = paste(
+  "\\left(",
+  "\\right) \\\\",
+  "\\left[",
+  "\\right]", 
+  sep = "\n") %>% two_column_layout
+```
+
+
+that is writing the symbol of `\` (blackslash) followed by `\left` _before opening the parenthesis_ and _blackslash_ followed by `\right` _before closing the parenthesis_. 
+
+In case of braces, we should use the following notation:
+
+```{r, echo = FALSE, results = "asis"}
+s_curly = paste(
+  "\\left\\{", 
+  "\\right\\}",
+  sep = "\n") %>% two_column_layout
+```
+
+The difference with respect to parenthesis and brackets is a _backslash after left and right_.
+
+Example:
+
+```{r, echo = FALSE, results = "asis"}
+s_complex_braces = paste(
+"10 \\cdot ",
+"  \\left\\{",
+"    5 + \\left[",
+"      3 + 2 \\cdot ",
+"         \\left(",
+"            9-1\\right)",
+"        \\right]  ",
+"  \\right\\}",
+sep = "\n") %>% two_column_layout
+```
+
+The opportunity to write the full notation for parenthesis and brackets will be clear when dealing whit fractions. 
+
+#Fractions
+To write fractions the inputs to give are \textbf{\textit{backslash}}, \textbf{\textit{frac}} and then \textit{numerator and denominator written between two braces}. With an example will be clear.
+
+Example:
+
+```{r, echo = FALSE, results = "asis"}
+s_frac = paste(
+"\\frac{5}{2}",
+sep = "\n")%>% two_column_layout
+
+```
+
+
+Example:
+
+```{r, echo = FALSE, results = "asis"}
+s_frac01 = paste(
+"\\frac{\\alpha}{1-\\alpha} = \\phi",
+sep = "\n")%>% two_column_layout
+
+```
+
+
+
+#Paranthesis & Fraction
+If we write a fraction in parenthesis with the shortcut
+
+```{r, echo=FALSE, results="asis"}
+s_pfrac = paste(
+ "( \\frac{5}{2})", 
+sep = "\n")%>% two_column_layout
+
+```
+
+the parenthesis do not fit the fraction.
+
+If we write with full notation
+
+```{r, echo=FALSE, results="asis"}
+s_pfrac01 = paste(
+  "\\left(",
+  "\\frac{5}{2}",
+  "\\right)",
+sep = "\n")%>% two_column_layout
+
+```
+
+we will have an appropriate result.
+
+Example:
+
+```{r, echo=FALSE, results="asis"}
+s_pfrac02 = paste(
+  "\\frac{Y}{L} =",
+  "\\left(",
+  "\\frac{K}{L}, 1",
+  "\\right)",
+sep = "\n")%>% two_column_layout
+
+```
+
+
+
+#Exponential
+
+To write the exponential we use the symbol `^` 
+
+```{r, echo=FALSE, results="asis"}
+s_expo = paste(
+"2^5",
+sep = "\n")%>% two_column_layout
+
+```
+
+
+In case of operation in the exponential, we need to _use braces after_ `^` 
+
+
+Example:
+
+```{r, echo=FALSE, results="asis"}
+s_expo01 = paste(
+ "F(K, L) = ",
+ "K^\\alpha L^\\beta",
+sep = "\n")%>% two_column_layout
+
+```
+
+
+Example:
+
+```{r, echo=FALSE, results="asis"}
+s_expo02 = paste(
+  "F(K, L) =",
+  "\\left[",
+  "\\gamma K^\\frac{\\sigma - 1}{\\sigma}",
+  " + (1 - \\gamma)L^\\frac{\\sigma - 1}{\\sigma}",
+  "\\right]^\\frac{\\sigma}{\\sigma - 1}",
+sep="\n")%>% two_column_layout
+
+```
+
+
+
+#Subscript
+
+To write subscript use the symbol `_`
+
+```{r, echo=FALSE, results="asis"}
+s_sub = paste(
+  "t_0",
+sep= "\n")%>% two_column_layout
+
+```
+
+
+
+We use _braces in case of operation in subscript_
+
+Example
+
+```{r, echo=FALSE, results="asis"}
+s_sub01 = paste(
+  "y_ty_{t-j}",
+sep = "\n")%>% two_column_layout
+```
+
+
+#Derivative
+
+Example:
+
+```{r, echo=FALSE, results="asis"}
+s_der = paste(
+  "\\frac{dk}{k}",
+sep="\n")%>% two_column_layout
+```
+
+To write partial differentiation, write the symbol 
+`\` followed by `\partial` in the fraction notation
+
+Example:
+
+```{r, echo=FALSE, results="asis"}
+s_der01 = paste(
+  "\\frac{",
+  "\\partial F}{",
+  "\\partial K}",
+  "r + \\delta",
+sep="\n")%>% two_column_layout
+```
+
+
+#Lagrangian
+
+The symbol of Lagrangian is written as follows:
+
+```{r, echo = FALSE, results="asis"}
+s_lag = paste(
+  "\\mathcal L",
+sep = "\n")%>% two_column_layout
+
+```
+
+
+
+#Summation
+
+The code to write summation is the following: symbol of `\` followed by _sum_, `_` and _braces with lower bound of summation_ followed by the symbol `^` _before the brace with the upper bound of summation_. 
+
+Example:
+
+```{r, echo=FALSE, results="asis"}
+s_sum = paste(
+  "\\sum_{t_0}^{\\infty}",
+sep = "\n")%>% two_column_layout
+```
+
+An example summing up what we saw until now:
+
+```{r, echo=FALSE, results="asis"}
+s_sum01 = paste(
+  "\\mathcal L =",
+  "\\sum_{t=0}^{\\infty}",
+  "\\left(",
+  "\\frac {1}{1 + \\rho}",
+  "\\right)^{t} u(c_t)",
+  "\\frac{L_t}{H}",
+  " + \\lambda",
+  "\\left[",
+  "S_0 + \\sum_{t=0}^{\\infty}",
+  "R_t^{-1}w_t",
+  "\\left(",
+  "\\frac{L_t}{H}",
+  "\\right)",
+  "- \\sum_{t=0}^{\\infty} R_t^{-1}c_t",
+  "\\left(",
+  "\\frac{L_t}{H}",
+  "\\right)",
+  "\\right]",
+sep="\n")%>% two_column_layout
+```
+
+
+
+#Limit
+
+The code for limit is written as follows:
+
+```{r, echo = FALSE, results="asis"}
+s_lim = paste(
+  "\\lim_{t\\to\\infty}",
+sep = "\n")%>% two_column_layout
+```
+
+
+Example: 
+
+```{r, echo=FALSE, results="asis"}
+s_lim01 = paste(
+  "\\lim_",
+  "{t\\to\\infty}",
+  "R_t^{-1}S_t = 0",
+sep = "\n")%>% two_column_layout
+```
+
+Example
+
+```{r, echo = FALSE, results="asis"}
+s_lim02 = paste(
+  "e^{",
+  "lim_{\\gamma\\to0}",
+  "\\frac{1}{\\gamma}ln",
+  "\\left[",
+  "\\alpha K^\\gamma + (1 - \\alpha)L^\\gamma",
+  "\\right]}",
+sep = "\n")%>% two_column_layout
+```
+
+
+#Integrals
+
+```{r, echo = FALSE, results="asis"}
+s_int = paste(
+  "\\int_0^\\infty",
+sep = "\n")%>% two_column_layout
+```
+
+
+Example
+
+<div class="twocol">
+<div class="left">
+```
+$$
+\int_0^\infty
+  \left[
+    r(t)e^{-R(t)}S(t) 
+    + e^{-R(t)} w(t) 
+    \frac{L(t)}{H}
+    -e^{-R(t)}c(t) 
+    \frac{L(t)}{H} 
+  \right]
+  dt
+$$
+```
+</div><!-- .left -->
+<div class="right">
+$$
+\int_0^\infty\left[r(t)e^{-R(t)}S(t) + e^{-R(t)} w(t) \frac{L(t)}{H}-e^{-R(t)}c(t) \frac{L(t)}{H} \right]dt
+$$
+</div><!-- .left -->
+</div>
+
+
+#Matrix
+
+The followin example shows how to write a matrix.
+
+Note that `\bmatrix` stands for _bracket matrix_ while `\pmatrix` stands for _parenthesized matrix_. Other kinds are available.
+
+Moreover, `\vdots` stands for _vertical dots_ while `\ddots` for _diagonal dots_. Other version of dots includes `\cdots` that stands for _central dots_, used also as multiplication sign.
+
+<div class="twocol">
+<div class="left">
+```
+$$
+A =
+\begin{bmatrix}
+  a_{11} & a_{12} & a_{13} & \dots & a_{1n} \\
+  a_{21} & a_{22} & a_{23} & \dots & a_{2n} \\
+  \vdots & \vdots & \vdots & \vdots & \vdots\\
+  a_{m1} & a_{m2} & a_{m3} & \dots & a_{mn} \\
+\end{bmatrix}
+\ne
+B =
+\begin{pmatrix}
+ b_{11} & b_{12} & b_{13} & \cdots & b_{1n} \\
+ b_{21} & \ddots & b_{23} & \cdots & b_{2n} \\
+ ...&...&... & \ddots &... \\
+ b_{m1} & b_{m2} & b_{m3} & \dots & b_{mn} \\
+\end{pmatrix}
+$$
+```
+</div><!-- .left -->
+<div class="right">
+$$
+A =
+\begin{bmatrix}
+  a_{11} & a_{12} & a_{13} & \dots & a_{1n} \\
+  a_{21} & a_{22} & a_{23} & \dots & a_{2n} \\
+  \vdots & \vdots & \vdots & \vdots & \vdots\\
+  a_{m1} & a_{m2} & a_{m3} & \dots & a_{mn} \\
+\end{bmatrix}
+\ne
+B =
+\begin{pmatrix}
+ b_{11} & b_{12} & b_{13} & \cdots & b_{1n} \\
+ b_{21} & \ddots & b_{23} & \cdots & b_{2n} \\
+ ...&...&... & \ddots &... \\
+ b_{m1} & b_{m2} & b_{m3} & \dots & b_{mn} \\
+\end{pmatrix}
+$$
+</div><!-- .left -->
+</div>
+
+#Equalities and Inequalities
+
+```{r, echo = FALSE}
+equalities = tribble(
+  ~desription,                ~cmd,    ~asis,
+  "Equality or assignment",   "=",     TRUE,
+  "Inequality",               "neq",   FALSE,
+  "Less than",                "<",     TRUE,
+  "Less than or equal to",    "leq",   FALSE,
+  "Greater than",             ">",     TRUE,
+  "Greater than or equal to", "geq",   FALSE,
+  "Approximately equal to",   "simeq", FALSE)
+
+equalities = equalities %>% 
+  by_row(function(x) put_codechunk(x$cmd, x$asis), 
+         .collate = "rows", .to = "latex") %>% 
+  by_row(function(x) put_result(x$cmd, x$asis), 
+         .collate = "rows", .to = "result") %>% 
+  select(-asis, -cmd)
+
+knitr::kable(equalities)
+```
+
+#Subset and Functions
+
+```{r, echo = FALSE}
+set_operations = tribble(
+  ~desription,            ~cmd,
+  "A is included in B",   "A \\subset B",
+  "A includes B",         "A \\supset B",
+  "A intersection B",     "A \\cap B",
+  "A union B",            "A \\cup B", 
+  "x is in A",            "x \\in A",
+  "A contains x",         "A \\ni x",
+  "x is not in A",        "x \\notin A",
+  "for some x",           "\\exists x",
+  "for any x",            "\\forall x",
+  "tends to / maps into", "\\to",
+  "gets",                 "\\gets",  # I've never used this...
+  "A implies B",          "A \\implies B")
+
+set_operations = set_operations %>% 
+  by_row(function(x) put_codechunk(x$cmd, TRUE), 
+         .collate = "rows", .to = "latex") %>% 
+  by_row(function(x) put_result(x$cmd, TRUE), 
+         .collate = "rows", .to = "result") %>% 
+  select(-cmd)
+
+knitr::kable(set_operations)
+```
+
+
